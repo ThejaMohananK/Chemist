@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/c_reaction"
+        android:icon="@drawable/chemicals"
+        android:title="Reactions" />
+
+    <item
+        android:id="@+id/c_table"
+        android:icon="@drawable/periodic_table"
+        android:title="Table" />
+
+    <item
+        android:id="@+id/c_about"
+        android:icon="@drawable/info"
+        android:title="About" />
+
+</menu>
