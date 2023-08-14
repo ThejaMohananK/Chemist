@@ -6,6 +6,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity5 extends AppCompatActivity {
@@ -22,6 +23,11 @@ public class MainActivity5 extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(video);
         video.setMediaController(mediaController);
-        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video_chemist_info));
+        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.screen_chemist));
+
+        //hide the actionbar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
     }
 }

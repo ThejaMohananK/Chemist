@@ -1,28 +1,44 @@
 package com.example.chemist;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity4 extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-    private TextView textView;
+public class MainActivity4 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-//       TextView textView = findViewById(R.id.textView);
+        BottomNavigationView bottom_NavigationView = findViewById(R.id.bottom_NavigationView);
+        bottom_NavigationView.setSelectedItemId(R.id.c_about);
 
-//        String text = "ABOUT CHEMIST\n\n" +
-//                "This mobile application has been developed for project dissertation work (Jan " +
-//                "2023 to May 2023)by Ms. Theja Mohanan.K, M.C.A,Department of Computer Science," +
-//                "Pondicherry University, Puducherry under the guidance of Mrs. G. Jeyakodi," +
-//                "Research Scholar, Pondicherry University, Puducherry and Dr. P. SHANTHI BALA," +
-//                "Associate Professor, Department of Computer Science, Pondicherry University, " +
-//                "Pondicherry.";
-//        textView.setText(text);
+        bottom_NavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.c_reaction) {
+                startActivity(new Intent(getApplicationContext(), MainActivity2.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.c_table) {
+                startActivity(new Intent(getApplicationContext(), MainActivity3.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.c_about) {
+                return true;
+            }
+            return false;
+        });
+
+        //hide the actionbar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
     }
 }

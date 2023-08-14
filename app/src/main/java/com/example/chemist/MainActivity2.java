@@ -19,6 +19,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -45,12 +46,34 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressBar progressBar; //progressbar in symbol
     private ProgressBar progressBar2; // progressbar in reaction
     private ImageView imageView; //imageView to show molecular structure
-    private ImageView imageBackHome; //backhome button
+
+    private ImageButton ibinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        BottomNavigationView bottom_NavigationView = findViewById(R.id.bottom_NavigationView);
+        bottom_NavigationView.setSelectedItemId(R.id.c_reaction);
+
+        bottom_NavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.c_reaction) {
+                return true;
+            } else if (itemId == R.id.c_table) {
+                startActivity(new Intent(getApplicationContext(), MainActivity3.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.c_about) {
+                startActivity(new Intent(getApplicationContext(), MainActivity4.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
+            }
+            return false;
+        });
 
         //hide the actionbar
         ActionBar actionBar = getSupportActionBar();
@@ -70,13 +93,12 @@ public class MainActivity2 extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar2 = findViewById(R.id.progressBar2);
         imageView = findViewById(R.id.imageView);
-        imageBackHome = findViewById(R.id.imageBackHome);
+        ibinfo = findViewById(R.id.ibinfo);
 
-        //set onclicklistener on imageBackHome imageView
-        imageBackHome.setOnClickListener(new View.OnClickListener() {
+        ibinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivity.class);
+                Intent intent = new Intent(MainActivity2.this, MainActivity5.class);
                 startActivity(intent);
             }
         });

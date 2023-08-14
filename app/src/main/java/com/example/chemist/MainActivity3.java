@@ -2,29 +2,42 @@ package com.example.chemist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3 extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-    private ImageView imgBackHome; //backhome button
+public class MainActivity3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        imgBackHome = findViewById(R.id.imgBackHome);
+        BottomNavigationView bottom_NavigationView = findViewById(R.id.bottom_NavigationView);
+        bottom_NavigationView.setSelectedItemId(R.id.c_table);
 
-        //set onclicklistener on imgBackHome imageView
-        imgBackHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity3.this,MainActivity.class);
-                startActivity(intent);
+        bottom_NavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.c_reaction) {
+                startActivity(new Intent(getApplicationContext(), MainActivity2.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.c_table) {
+                return true;
+            } else if (itemId == R.id.c_about) {
+                startActivity(new Intent(getApplicationContext(), MainActivity4.class));
+                overridePendingTransition(R.anim.slidein_right, R.anim.slideout_left);
+                finish();
+                return true;
             }
+            return false;
         });
+
+        //hide the actionbar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
 }
