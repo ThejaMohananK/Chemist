@@ -7,9 +7,32 @@
     tools:context=".MainActivity3"
     android:gravity="center">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/periodictable" />
+
+            </HorizontalScrollView>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         android:layout_gravity="bottom"
         android:id="@+id/bottom_AppBar"
         app:fabCradleMargin="10dp"
@@ -26,21 +49,4 @@
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="400dp"
-                android:layout_height="670dp"
-                app:srcCompat="@drawable/periodictable" />
-
-        </HorizontalScrollView>
-
-    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

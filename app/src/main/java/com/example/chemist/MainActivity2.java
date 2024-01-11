@@ -47,7 +47,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressBar progressBar2; // progressbar in reaction
     private ImageView imageView; //imageView to show molecular structure
 
-    private ImageButton ibinfo;
+    private ImageButton ibInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +93,9 @@ public class MainActivity2 extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar2 = findViewById(R.id.progressBar2);
         imageView = findViewById(R.id.imageView);
-        ibinfo = findViewById(R.id.ibinfo);
+        ibInfo = findViewById(R.id.ibInfo);
 
-        ibinfo.setOnClickListener(new View.OnClickListener() {
+        ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity2.this, MainActivity5.class);
@@ -107,7 +107,7 @@ public class MainActivity2 extends AppCompatActivity {
         btnreacfetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reactionfetch();
+                reactionFetch();
             }
         });
 
@@ -124,7 +124,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                imagefetch();
+                imageFetch();
             }
         });
 
@@ -221,7 +221,7 @@ public class MainActivity2 extends AppCompatActivity {
                 });
     }
 
-    private void reactionfetch() {
+    private void reactionFetch() {
         // Show the progress bar
         progressBar2.setVisibility(View.VISIBLE);
 
@@ -255,7 +255,7 @@ public class MainActivity2 extends AppCompatActivity {
                 });
     }
 
-    private void imagefetch() {
+    private void imageFetch() {
         // Show the progress bar
         progressBar2.setVisibility(View.VISIBLE);
 
